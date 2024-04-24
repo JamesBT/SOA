@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<MultiCharts version="2.0" xmlns="http://www.vni.com/products/jmsl/2.0">
+
+<Chart>
+    <ChartTitle>
+        <Attribute name="Title">Line Chart</Attribute>
+        <Attribute name="FontSize" value="14"/>
+        <Attribute name="FontStyle" value="3"/>
+    </ChartTitle>
+    <AxisXY>
+        <Data y="{6,5,7,1}">
+            <Attribute name="LineColor" value="blue"/>
+            <Attribute name="LineWidth" value="2.0"/>
+            <Attribute name="DataType" value="DATA_TYPE_LINE|DATA_TYPE_MARKER"/>
+            <Attribute name="MarkerType" value="MARKER_TYPE_HOLLOW_SQUARE"/>
+            <Attribute name="Title" value="Blue Line"/>
+            <ToolTip/>
+        </Data>
+        <Data y="{1,3,6,8}">
+            <Attribute name="MarkerColor" value="darkblue"/>
+            <Attribute name="DataType" value="DATA_TYPE_MARKER"/>
+            <Attribute name="MarkerType" value="MARKER_TYPE_FILLED_CIRCLE"/>
+            <Attribute name="Title" value="Markers"/>
+            <ToolTip/>
+        </Data>
+    </AxisXY>
+</Chart>
+
+<Chart>
+    <Attribute name="FontName" value="Serif"/>
+    <ChartTitle>
+        <Attribute name="Title">Axis Titles</Attribute>
+        <Attribute name="FontSize" value="14"/>
+        <Attribute name="FontStyle" value="3"/>
+    </ChartTitle>
+    <AxisXY>
+        <AxisX>
+            <AxisTitle>
+                <Attribute name="Title" value="The X-Axis"/>
+                <Attribute name="TextColor" value="brown"/>
+                <Attribute name="FontStyle" value="ITALIC"/>
+            </AxisTitle>
+            <AxisUnit>
+                <Attribute name="Title" value="ft/s"/>
+            </AxisUnit>
+        </AxisX>
+        <AxisY>
+            <AxisTitle>
+                <Attribute name="Title" value="The Y-Axis"/>
+                <Attribute name="TextColor" value="red"/>
+                <Attribute name="FontStyle" value="BOLD"/>
+            </AxisTitle>
+            <AxisUnit>
+                <Attribute name="Title" value="temp"/>
+            </AxisUnit>
+        </AxisY>
+        <Data y="{6,5,7,1}">
+            <Attribute name="LineColor" value="blue"/>
+            <Attribute name="LineWidth" value="2.0"/>
+            <Attribute name="DataType" value="DATA_TYPE_LINE|DATA_TYPE_MARKER"/>
+            <Attribute name="MarkerType" value="MARKER_TYPE_HOLLOW_SQUARE"/>
+        </Data>
+        <Data y="{1,3,6,8}">
+            <Attribute name="MarkerColor" value="darkblue"/>
+            <Attribute name="DataType" value="DATA_TYPE_MARKER"/>
+            <Attribute name="MarkerType" value="MARKER_TYPE_FILLED_CIRCLE"/>
+        </Data>
+    </AxisXY>
+</Chart>
+
+<Chart>
+    <Legend>
+        <Attribute name="Paint" value="true"/>
+        <Attribute name="Viewport" value="0.83,1.0,0.1,0.3"/>
+    </Legend>
+    <AxisXY>
+        <Attribute name="Viewport" value="0.13,0.75,0.2,0.8"/>
+        <Attribute name="LineColor" value="red"/>
+        <Attribute name="MarkerColor" value="red"/>
+        <Attribute name="TextColor" value="red"/>
+        <Data x="{10,20,30,40}" y="{60,50,70,10}">
+            <Attribute name="LineWidth" value="2.0"/>
+            <Attribute name="DataType" value="DATA_TYPE_LINE|DATA_TYPE_MARKER"/>
+            <Attribute name="MarkerType" value="MARKER_TYPE_HOLLOW_SQUARE"/>
+            <Attribute name="Title" value="Red Axis"/>
+            <ToolTip/>
+        </Data>
+    </AxisXY>
+    <AxisXY>
+        <Attribute name="Viewport" value="0.13,0.75,0.2,0.8"/>
+        <Attribute name="LineColor" value="blue"/>
+        <Attribute name="MarkerColor" value="blue"/>
+        <Attribute name="TextColor" value="blue"/>
+        <AxisX>
+            <Attribute name="Type" value="AXIS_X_TOP"/>
+        </AxisX>
+        <AxisY>
+            <Attribute name="Type" value="AXIS_Y_RIGHT"/>
+        </AxisY>
+        <Data y="{1,8,3,7}">
+            <Attribute name="DataType" value="DATA_TYPE_LINE|DATA_TYPE_MARKER"/>
+            <Attribute name="MarkerType" value="MARKER_TYPE_FILLED_CIRCLE"/>
+            <Attribute name="Title" value="Blue Axis"/>
+            <ToolTip/>
+        </Data>
+    </AxisXY>
+</Chart>
+
+</MultiCharts>

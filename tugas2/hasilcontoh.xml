@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PO:PurchaseOrder xmlns:PO="http://www.auto-parts.com/PurchaseOrder"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.auto-parts.com/purchaseOrder.xsd">
+    <ShippingInformation>
+        <Name> Auto Parts and Car Accessories </Name>
+        <Address>
+            <Street> 459 Wickham St. </Street>
+            <City> Fortitude Valley </City>
+            <State> QLD </State>
+            <PostalCode> 4006 </PostalCode>
+        </Address>
+        <ShippingDate> 2010-09-20 </ShippingDate>
+    </ShippingInformation>
+    <BillingInformation>
+        <Name> Auto Parts and Car Accessories </Name>
+        <Address>
+            <Street> 158 Edward St. </Street>
+            <City> Brisbane </City>
+            <State> QLD </State>
+            <PostalCode> 4000 </PostalCode>
+        </Address>
+        <BillingDate> 2010-09-15 </BillingDate>
+    </BillingInformation>
+    <Order Total="32000.00"
+           ItemsSold="200">
+        <Product Name="Catalytic Converter"
+                 Price="240.00"
+                 Quantity="100" />
+        <Product Name="Drive Axle"
+                 Price="80.00"
+                 Quantity="100" />
+    </Order>
+</PO:PurchaseOrder>

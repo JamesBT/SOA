@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                xmlns:vni="http://www.vni.com/products/jmsl/2.0"
+                targetNamespace="http://www.vni.com/products/jmsl/2.0"
+                elementFormDefault="qualified">
+
+                <!-- Untuk Attribute karena banyak macam attribute -->
+        <xsd:complexType name="AttributeType">
+        <xsd:simpleContent>
+                <xsd:extension base="xsd:string">
+                <xsd:attribute name="name" type="xsd:string"/>
+                <xsd:attribute name="value" type="xsd:string" use="optional"/>
+                </xsd:extension>
+        </xsd:simpleContent>    
+        </xsd:complexType>
+
+        <xsd:complexType name="ChartTitleType">
+        <xsd:sequence>
+                <xsd:element name="Attribute" type="vni:AttributeType" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        </xsd:complexType>
+
+        <xsd:complexType name="DataType">
+        <xsd:sequence>
+                <xsd:element name="Attribute" type="vni:AttributeType" maxOccurs="unbounded" />
+                <xsd:element name="ToolTip" minOccurs="0" />
+        </xsd:sequence>
+        <xsd:attribute name="x" use="optional" type="xsd:string"/>
+        <xsd:attribute name="y" use="optional" type="xsd:string"/>
+        </xsd:complexType>
+
+        <xsd:complexType name="AxisXYType">
+        <xsd:sequence>
+                <xsd:element name="Attribute" type="vni:AttributeType" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element name="AxisX" type="vni:AxisType" minOccurs="0" maxOccurs="unbounded" />
+                <xsd:element name="AxisY" type="vni:AxisType" minOccurs="0" maxOccurs="unbounded" />
+                <xsd:element name="Data" type="vni:DataType" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        </xsd:complexType>
+
+        <xsd:complexType name="AxisType">
+        <xsd:choice minOccurs="1" maxOccurs="3">
+                <xsd:element name="AxisTitle" type="vni:AxisTitleType" />
+                <xsd:element name="AxisUnit" type="vni:AxisUnitType" />
+                <xsd:element name="Attribute" type="vni:AttributeType"/>
+        </xsd:choice>
+        </xsd:complexType>
+
+        <xsd:complexType name="AxisTitleType">
+        <xsd:sequence>
+        <xsd:element name="Attribute" type="vni:AttributeType" maxOccurs="3"/>
+        </xsd:sequence>
+        </xsd:complexType>
+
+        <xsd:complexType name="AxisUnitType">
+        <xsd:sequence>
+        <xsd:element name="Attribute" type="vni:AttributeType" />
+        </xsd:sequence>
+        </xsd:complexType>
+
+        <xsd:complexType name="ChartType">
+        <xsd:choice minOccurs="2" maxOccurs="4">
+                <xsd:element name="Legend" type="vni:LegendType" minOccurs="0"/>
+                <xsd:element name="Attribute" type="vni:AttributeType" minOccurs="0"/>
+                <xsd:element name="ChartTitle" type="vni:ChartTitleType" minOccurs="0"/>
+                <xsd:element name="AxisXY" type="vni:AxisXYType" minOccurs="0"/>
+        </xsd:choice>
+        </xsd:complexType>
+
+        <xsd:complexType name="LegendType">
+        <xsd:sequence>            
+        <xsd:element name="Attribute" type="vni:AttributeType" minOccurs="0" maxOccurs="2"/>
+        </xsd:sequence>
+        </xsd:complexType>
+
+        <xsd:element name="MultiCharts">
+        <xsd:complexType>
+                <xsd:sequence>
+                <xsd:element name="Chart" type="vni:ChartType" maxOccurs="3" />
+                </xsd:sequence>
+                <xsd:attribute name="version" type="xsd:string" use="required"/>
+        </xsd:complexType>
+        </xsd:element>
+</xsd:schema>

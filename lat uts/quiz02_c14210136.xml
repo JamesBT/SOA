@@ -1,0 +1,265 @@
+<!--NO 1-->
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Define the root element: catalog -->
+    <xs:element name="catalog">
+        <xs:complexType>
+            <xs:sequence>
+
+                <!-- Define the book element -->
+                <xs:element name="book" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+
+                            <!-- Child elements within the book -->
+                            <xs:element name="author" type="xs:string" minOccurs="1" maxOccurs="2"/>
+                            <xs:element name="title" type="xs:string"/>
+                            <xs:element name="genre" type="xs:string"/>
+                            <xs:element name="price" type="xs:decimal"/>
+                            <xs:element name="publish_date" type="xs:date"/>
+                            <xs:element name="description" type="xs:string"/>
+
+                            <!-- Optional reviews element -->
+                            <xs:element name="reviews" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+
+                                        <!-- Define review elements -->
+                                        <xs:element name="review" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:simpleContent>
+                                                    <xs:extension base="xs:string">
+                                                        <xs:attribute name="revName" type="xs:string"/>
+                                                        <xs:attribute name="revDate" type="xs:date"/>
+                                                    </xs:extension>
+                                                </xs:simpleContent>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+
+                        <!-- Define the book ID attribute -->
+                        <xs:attribute name="id" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+
+
+<!--NO 2-->
+<!--muncul error ini : 
+cvc-elt.4.2: Cannot resolve 'esri:Polygon' to a type definition for element 'Value'
+
+tapi ketika dihapus atribut xsi:type nya, document bisa valid, jawabannya ada di <hapus xsi:type>.-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:esri="http://www.esri.com/schemas/ArcGIS/9.0"
+           targetNamespace="http://www.esri.com/schemas/ArcGIS/9.0"
+           elementFormDefault="qualified">
+
+  <!-- Define the Polygon element -->
+  <xs:element name="Value">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="HasID" type="xs:boolean"/>
+        <xs:element name="HasZ" type="xs:boolean"/>
+        <xs:element name="HasM" type="xs:boolean"/>
+        <xs:element name="Extent" type="esri:Envelope"/>
+        <xs:element name="RingArray" type="esri:ArrayOfRing"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Define the Envelope element -->
+  <xs:complexType name="Envelope">
+    <xs:sequence>
+      <xs:element name="XMin" type="xs:decimal"/>
+      <xs:element name="YMin" type="xs:decimal"/>
+      <xs:element name="XMax" type="xs:decimal"/>
+      <xs:element name="YMax" type="xs:decimal"/>
+      <xs:element name="ZMin" type="xs:decimal"/>
+      <xs:element name="ZMax" type="xs:decimal"/>
+      <xs:element name="MMin" type="xs:decimal"/>
+      <xs:element name="MMax" type="xs:decimal"/>
+    </xs:sequence>
+    <xs:attribute name="Envelope" type="xs:string"/>
+  </xs:complexType>
+
+  <!-- Define the ArrayOfRing element -->
+  <xs:complexType name="ArrayOfRing">
+    <xs:sequence>
+      <xs:element name="Ring" type="esri:Ring" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the Ring element -->
+  <xs:complexType name="Ring">
+    <xs:sequence>
+      <xs:element name="SegmentArray" type="esri:ArrayOfSegment"/>
+      <xs:element name="PointArray" type="esri:ArrayOfPoint"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the ArrayOfSegment element -->
+  <xs:complexType name="ArrayOfSegment">
+    <xs:sequence>
+      <xs:element name="Segment" type="esri:Segment" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the Segment element -->
+  <xs:complexType name="Segment">
+    <xs:choice>
+      <xs:element name="Line" type="esri:Line"/>
+      <xs:element name="CircularArc" type="esri:CircularArc"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <!-- Define the Line element -->
+  <xs:complexType name="Line">
+    <xs:sequence>
+      <xs:element name="FromPoint" type="esri:Point"/>
+      <xs:element name="ToPoint" type="esri:Point"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the CircularArc element -->
+  <xs:complexType name="CircularArc">
+    <xs:sequence>
+      <xs:element name="FromPoint" type="esri:Point"/>
+      <xs:element name="ToPoint" type="esri:Point"/>
+      <xs:element name="CenterPoint" type="esri:Point"/>
+      <xs:element name="IsCounterClockwise" type="xs:boolean"/>
+      <xs:element name="IsMinor" type="xs:boolean"/>
+      <xs:element name="IsLine" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the ArrayOfPoint element -->
+  <xs:complexType name="ArrayOfPoint">
+    <xs:sequence>
+      <xs:element name="Point" type="esri:Point" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the Point element -->
+  <xs:complexType name="Point">
+    <xs:sequence>
+      <xs:element name="X" type="xs:decimal"/>
+      <xs:element name="Y" type="xs:decimal"/>
+      <xs:element name="Z" type="xs:decimal"/>
+      <xs:element name="M" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+
+
+<!-- NO 2 jawaban yang di hapus xsi:type -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+  <!-- Define the Polygon element -->
+  <xs:element name="Value">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="HasID" type="xs:boolean"/>
+        <xs:element name="HasZ" type="xs:boolean"/>
+        <xs:element name="HasM" type="xs:boolean"/>
+        <xs:element name="Extent"/>
+        <xs:element name="RingArray"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Define the Envelope element -->
+  <xs:complexType name="Envelope">
+    <xs:sequence>
+      <xs:element name="XMin" type="xs:decimal"/>
+      <xs:element name="YMin" type="xs:decimal"/>
+      <xs:element name="XMax" type="xs:decimal"/>
+      <xs:element name="YMax" type="xs:decimal"/>
+      <xs:element name="ZMin" type="xs:decimal"/>
+      <xs:element name="ZMax" type="xs:decimal"/>
+      <xs:element name="MMin" type="xs:decimal"/>
+      <xs:element name="MMax" type="xs:decimal"/>
+    </xs:sequence>
+    <xs:attribute name="Envelope" type="xs:string"/>
+  </xs:complexType>
+
+  <!-- Define the ArrayOfRing element -->
+  <xs:complexType name="ArrayOfRing">
+    <xs:sequence>
+      <xs:element name="Ring" type="Ring" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the Ring element -->
+  <xs:complexType name="Ring">
+    <xs:sequence>
+      <xs:element name="SegmentArray" type="ArrayOfSegment"/>
+      <xs:element name="PointArray" type="ArrayOfPoint"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the ArrayOfSegment element -->
+  <xs:complexType name="ArrayOfSegment">
+    <xs:sequence>
+      <xs:element name="Segment" type="Segment" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the Segment element -->
+  <xs:complexType name="Segment">
+    <xs:choice>
+      <xs:element name="Line" type="Line"/>
+      <xs:element name="CircularArc" type="CircularArc"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <!-- Define the Line element -->
+  <xs:complexType name="Line">
+    <xs:sequence>
+      <xs:element name="FromPoint" type="Point"/>
+      <xs:element name="ToPoint" type="Point"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the CircularArc element -->
+  <xs:complexType name="CircularArc">
+    <xs:sequence>
+      <xs:element name="FromPoint" type="Point"/>
+      <xs:element name="ToPoint" type="Point"/>
+      <xs:element name="CenterPoint" type="Point"/>
+      <xs:element name="IsCounterClockwise" type="xs:boolean"/>
+      <xs:element name="IsMinor" type="xs:boolean"/>
+      <xs:element name="IsLine" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the ArrayOfPoint element -->
+  <xs:complexType name="ArrayOfPoint">
+    <xs:sequence>
+      <xs:element name="Point" type="Point" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the Point element -->
+  <xs:complexType name="Point">
+    <xs:sequence>
+      <xs:element name="X" type="xs:decimal"/>
+      <xs:element name="Y" type="xs:decimal"/>
+      <xs:element name="Z" type="xs:decimal"/>
+      <xs:element name="M" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

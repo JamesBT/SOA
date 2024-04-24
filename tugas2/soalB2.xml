@@ -1,0 +1,126 @@
+<Value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:esri="http://www.esri.com/schemas/ArcGIS/9.0"
+       xsi:type="esri:Polygon">
+    <HasID>false</HasID>
+    <HasZ>true</HasZ>
+    <HasM>true</HasM>
+    <Extent xsi:type="esri:Envelope">
+        <XMin>45.91597</XMin>
+        <YMin>207.947770000001</YMin>
+        <XMax>1115.26034</XMax>
+        <YMax>1145.81537</YMax>
+        <ZMin>0</ZMin>
+        <ZMax>0</ZMax>
+        <MMin>0</MMin>
+        <MMax>0</MMax>
+    </Extent>
+    <RingArray xsi:type="esri:ArrayOfRing">
+        <Ring xsi:type="esri:Ring">
+            <SegmentArray xsi:type="esri:ArrayOfSegment">
+                <Segment xsi:type="esri:Line">
+                    <FromPoint xsi:type="esri:Point">
+                        <X>440.34627</X>
+                        <Y>891.62696</Y>
+                        <M>NaN</M>
+                        <Z>0</Z>
+                    </FromPoint>
+                    <ToPoint xsi:type="esri:Point">
+                        <X>580.58815</X>
+                        <Y>716.3246</Y>
+                        <M>NaN</M>
+                        <Z>0</Z>
+                    </ToPoint>
+                </Segment>
+                <Segment xsi:type="esri:CircularArc">
+                    <FromPoint xsi:type="esri:Point">
+                        <X>580.58815</X>
+                        <Y>716.3246</Y>
+                        <M>NaN</M>
+                        <Z>0</Z>
+                    </FromPoint>
+                    <ToPoint xsi:type="esri:Point">
+                        <X>159.862499999999</X>
+                        <Y>444.605949999999</Y>
+                        <M>NaN</M>
+                        <Z>0</Z>
+                    </ToPoint>
+                    <CenterPoint xsi:type="esri:Point">
+                        <X>387.984009699999</X>
+                        <Y>552.967956860254</Y>
+                    </CenterPoint>
+                    <IsCounterClockwise>false</IsCounterClockwise>
+                    <IsMinor>false</IsMinor>
+                    <IsLine>false</IsLine>
+                </Segment>
+                <Segment xsi:type="esri:Line">
+                    <FromPoint xsi:type="esri:Point">
+                        <X>159.862499999999</X>
+                        <Y>444.605949999999</Y>
+                        <M>NaN</M>
+                        <Z>0</Z>
+                    </FromPoint>
+                    <ToPoint xsi:type="esri:Point">
+                        <X>45.91597</X>
+                        <Y>602.378070000001</Y>
+                        <M>NaN</M>
+                        <Z>0</Z>
+                    </ToPoint>
+                </Segment>
+                <Segment xsi:type="esri:Line">
+                    <FromPoint xsi:type="esri:Point">
+                        <X>45.91597</X>
+                        <Y>602.378070000001</Y>
+                        <M>NaN</M>
+                        <Z>0</Z>
+                    </FromPoint>
+                    <ToPoint xsi:type="esri:Point">
+                        <X>440.34627</X>
+                        <Y>891.62696</Y>
+                        <M>NaN</M>
+                        <Z>0</Z>
+                    </ToPoint>
+                </Segment>
+            </SegmentArray>
+        </Ring>
+        <Ring xsi:type="esri:Ring">
+            <PointArray xsi:type="esri:ArrayOfPoint">
+                <Point xsi:type="esri:Point">
+                    <X>878.602150000001</X>
+                    <Y>602.378070000001</Y>
+                    <M>NaN</M>
+                    <Z>0</Z>
+                </Point>
+                <Point xsi:type="esri:Point">
+                    <X>927.128280000001</X>
+                    <Y>585.12434</Y>
+                    <M>NaN</M>
+                    <Z>0</Z>
+                </Point>
+                <Point xsi:type="esri:Point">
+                    <X>1115.26034</X>
+                    <Y>470.9013</Y>
+                    <M>NaN</M>
+                    <Z>0</Z>
+                </Point>
+                <Point xsi:type="esri:Point">
+                    <X>966.25333</X>
+                    <Y>225.477999999999</Y>
+                    <M>NaN</M>
+                    <Z>0</Z>
+                </Point>
+                <Point xsi:type="esri:Point">
+                    <X>738.360269999999</X>
+                    <Y>207.947770000001</Y>
+                    <M>NaN</M>
+                    <Z>0</Z>
+                </Point>
+                <Point xsi:type="esri:Point">
+                    <X>878.602150000001</X>
+                    <Y>602.378070000001</Y>
+                    <M>NaN</M>
+                    <Z>0</Z>
+                </Point>
+            </PointArray>
+        </Ring>
+    </RingArray>
+</Value>

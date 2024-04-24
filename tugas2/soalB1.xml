@@ -1,0 +1,53 @@
+<catalog>
+    <book id="bk104">
+        <author>Gambardella, Matthew</author>
+        <title>XML Developer's Guide</title>
+        <genre>Computer</genre>
+        <price>44.95</price>
+        <publish_date>2000-10-01</publish_date>
+        <description>An in-depth look at creating applications with XML.</description>
+        <reviews>
+            <review revName="John"
+                    revDate="2001-02-04">A Complete Resource for Developing Applications Using XML.</review>
+        </reviews>
+    </book>
+    <book id="bk107">
+        <author>Knorr, Stefan</author>
+        <title>Creepy Crawlies</title>
+        <genre>Horror</genre>
+        <price>4.95</price>
+        <publish_date>2000-12-06</publish_date>
+        <description>An anthology of horror stories about roaches, centipedes, scorpions and other insects.</description>
+        <reviews>
+            <review revName="Dan"
+                    revDate="2001-01-12">Just in case you didn't already think that insects were terrifying/awesome enough, here is a delightful collection of bugs that we are lucky enough to live amongst.</review>
+            <review revName="Trisha"
+                    revDate="2002-06-23">Scaryyyyy story.</review>
+        </reviews>
+    </book>
+    <book id="bk109">
+        <author>Kress, Peter</author>
+        <title>Paradox Lost</title>
+        <genre>Science Fiction</genre>
+        <price>6.95</price>
+        <publish_date>2000-11-02</publish_date>
+        <description>After an inadvertant trip through a Heisenberg Uncertainty Device, James Salway discovers the problems of being quantum.</description>
+    </book>
+    <book id="bk110">
+        <author>O'Brien, Tim</author>
+        <author>Jones, Don</author>
+        <title>Microsoft .NET: The Programming Bible</title>
+        <genre>Computer</genre>
+        <price>36.95</price>
+        <publish_date>2000-12-09</publish_date>
+        <description>Microsoft's .NET initiative is explored in detail in this deep programmer's reference.</description>
+        <reviews>
+            <review revName="Bonnie"
+                    revDate="2001-04-17">Here, finally, is a book that shows you how to make all of these technologies work together.</review>
+            <review revName="Doe"
+                    revDate="2001-06-28">Great reference book.</review>
+            <review revName="Aisha"
+                    revDate="2005-11-01">A bit outdated now considering the new release of the .NET framework.</review>
+        </reviews>
+    </book>
+</catalog>

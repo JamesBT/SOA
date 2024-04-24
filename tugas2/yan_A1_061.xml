@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:contoso="www.contoso.com"
+            targetNamespace="www.contoso.com"
+            elementFormDefault="qualified">
+
+    <xsd:element name="PurchaseOrders">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PurchaseOrder" type="contoso:PurchaseOrderType" maxOccurs="3" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:complexType name="PurchaseOrderType">
+        <xsd:sequence>
+            <xsd:element name="Address" type="contoso:AddressType" maxOccurs="unbounded" />
+            <xsd:element name="DeliveryNotes" type="xsd:string" />
+            <xsd:element name="Items" type="contoso:ItemsType" minOccurs="0" />
+            <xsd:element name="ShipDate" type="xsd:date" minOccurs="0" />
+        </xsd:sequence>
+        <xsd:attribute name="PurchaseOrderNumber" type="xsd:string" use="required" />
+        <xsd:attribute name="OrderDate" type="xsd:date" use="required" />
+    </xsd:complexType>
+
+    <xsd:complexType name="AddressType">
+        <xsd:sequence>
+            <xsd:element name="Name" type="xsd:string" />
+            <xsd:element name="Street" type="xsd:string" />
+            <xsd:element name="City" type="xsd:string" />
+            <xsd:element name="State" type="xsd:string" />
+            <xsd:element name="Zip" type="xsd:string" />
+            <xsd:element name="Country" type="xsd:string" />
+        </xsd:sequence>
+        <xsd:attribute name="Type" type="xsd:string" use="required" />
+    </xsd:complexType>
+
+    <xsd:complexType name="ItemsType">
+        <xsd:sequence>
+            <xsd:element name="Item" type="contoso:ItemType" maxOccurs="2" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ItemType">
+        <xsd:sequence>
+            <xsd:element name="ProductName" type="xsd:string" />
+            <xsd:element name="Quantity" type="xsd:integer" />
+            <xsd:element name="USPrice">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:decimal">
+                        <xsd:fractionDigits value="2" />
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="Comment" type="xsd:string" minOccurs="0" />
+        </xsd:sequence>
+        <xsd:attribute name="PartNumber" type="xsd:string" use="required" />
+
+    </xsd:complexType>
+
+</xsd:schema>

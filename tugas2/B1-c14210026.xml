@@ -1,0 +1,48 @@
+<!-- B1 - james - c14210026 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="catalog" type="catalogType" />
+    <xsd:complexType name="catalogType">
+        <xsd:sequence>
+            <xsd:element name="book" type="bookType" minOccurs="0" maxOccurs="4" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="bookType">
+        <xsd:sequence>
+            <xsd:element name="author" type="xsd:string" minOccurs="0" maxOccurs="2"/>
+            <xsd:element name="title" type="xsd:string" />
+            <xsd:element name="genre" type="xsd:string" />
+            <xsd:element name="price">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:decimal">
+                        <xsd:fractionDigits value="2" />
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="publish_date" type="xsd:date" />
+            <xsd:element name="description" type="xsd:string" />
+            <xsd:element name="reviews" type="reviewsType" minOccurs="0" />
+        </xsd:sequence>
+        <xsd:attribute name="id">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:minLength value="5" />
+                    <xsd:maxLength value="5" />
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:complexType>
+    <xsd:complexType name="reviewsType">
+        <xsd:sequence>
+            <xsd:element name="review" type="reviewType" minOccurs="0" maxOccurs="3" />
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="reviewType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="revName" type="xsd:string" />
+                <xsd:attribute name="revDate" type="xsd:date" />
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+</xsd:schema>
